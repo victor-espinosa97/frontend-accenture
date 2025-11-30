@@ -1,0 +1,19 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
+import { CategoriesPage } from './categories.page';
+import { CategoryDetailPageModule } from '../category-detail/category-detail.module';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RouterModule.forChild([{ path: '', component: CategoriesPage }]),
+    CategoryDetailPageModule
+  ],
+  declarations: [CategoriesPage]
+})
+export class CategoriesPageModule {}
