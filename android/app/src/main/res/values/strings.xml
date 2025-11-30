@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">todo-categories</string>
+    <string name="title_activity_main">todo-categories</string>
+    <string name="package_name">com.categories.todo</string>
+    <string name="custom_url_scheme">com.categories.todo</string>
+</resources>
