@@ -33,7 +33,7 @@ ionic cordova build android --prod
 
 ### IOS
 ```bash
-ionic cordova platform add ios
+ionic cordova platform add ios 
 ionic cordova build ios --prod
 ```
 
