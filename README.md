@@ -1,7 +1,21 @@
 # Todo Categories - Ionic Angular
 
-Aplicación móvil desarrollada con **Ionic + Angular + NgModules**, que permite gestionar tareas y categorías.  
-Incluye integración con **Ionic Storage**, lazy loading y compatibilidad con Android e iOS mediante **Cordova**.
+Aplicación móvil desarrollada con **Ionic + Angular**, que permite gestionar tareas y categorías, asignar colores, editar y eliminarlas, además de integrar optimizaciones de rendimiento y soporte para Android e iOS mediante **Cordova**.
+
+---
+
+## Funcionalidades Principales
+
+- Crear, editar y eliminar **tareas**
+- Crear, editar y eliminar **categorías**
+- Asignar colores a categorías
+- Mostrar el color de cada categoría en la lista de tareas y categorías
+- Marcar tareas como pendientes o completadas
+- Persistencia con **Ionic Storage**
+- Arquitectura limpia (domain / infrastructure / presentation)
+- Optimización de listas grandes con `trackBy`
+- Integración lista para Firebase Remote Config
+- Compilación para **Android (APK)** e **iOS (IPA)**
 
 ---
 

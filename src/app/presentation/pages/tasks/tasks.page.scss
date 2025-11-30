@@ -1,0 +1,12 @@
+.category-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.done {
+  text-decoration: line-through;
+  opacity: 0.6;
+}

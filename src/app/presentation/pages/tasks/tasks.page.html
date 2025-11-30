@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tareas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/categories">Categorías</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="(categoriesFeature$ | async)">
+    <ion-segment (ionChange)="onCategoryChange($event.detail.value)">
+      <ion-segment-button value="">
+        <ion-label>Todas</ion-label>
+      </ion-segment-button>
+      <ion-segment-button *ngFor="let c of categories$ | async" [value]="c.id">
+        <ion-label>{{ c.name }}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ng-container>
+
+
+  <ion-list>
+    <ion-item
+      button
+      detail
+      (click)="openEdit(t)"
+      *ngFor="let t of (tasks$ | async); trackBy: trackById"
+    >
+      <!-- TEMPORAL PARA PROBAR -->
+      <!-- <p>{{ t | json }}</p> -->
+
+      <div
+        *ngIf="categories$ | async as cats"
+        class="category-color"
+        [style.background]="getCategoryColor(t.categoryId, cats)"
+      ></div>
+
+
+      <ion-icon
+        slot="start"
+        [name]="t.done ? 'checkmark-circle' : 'radio-button-off'"
+        [color]="t.done ? 'success' : 'medium'"
+        class="task-done-icon"
+        (click)="toggleDone(t.id); $event.stopPropagation()"
+      ></ion-icon>
+
+
+      <ion-label>
+        <h2 [class.done]="t.done">{{ t.title }}</h2>
+        <p *ngIf="t.description">{{ t.description }}</p>
+      </ion-label>
+
+      <ion-button fill="clear" color="danger" (click)="delete(t.id)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+  </ion-list>
+
+  <ng-container *ngIf="(tasks$ | async)?.length === 0">
+    <ion-item lines="none">
+      <ion-label class="ion-text-center">No hay tareas registradas</ion-label>
+    </ion-item>
+  </ng-container>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/task-detail">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

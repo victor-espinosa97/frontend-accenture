@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RemoteConfigService } from 'src/app/infraestructure/services/remote-config.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private remote: RemoteConfigService) {
+    this.init();
+  }
+
+  async init() {
+    await this.remote.load();
+  }
 }
